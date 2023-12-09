@@ -12,11 +12,10 @@ export const getPatients = async () => {
 
 export const updatePatient = async (updatedPatientData) => {
   try {
-    // Effettua una chiamata POST a /Patient/Update
     const response = await api.post('/Patient/Update', updatedPatientData);
-
     return response.data;
   } catch (error) {
     throw error;
   }
 };
+

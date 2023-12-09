@@ -96,7 +96,7 @@ const PatientList = () => {
             open={openEditDialog}
             onClose={handleEditDialogClose}
             patient={selectedPatient}
-            onUpdatePatient={updatePatient} 
+            onUpdatePatient={updatePatient}
           />
         </>
       )}

@@ -1,13 +1,13 @@
 import React from 'react';
 import PatientList from './components/PatientList';
-
+import Footer from './components/Footer';
+ 
 function App() {
   return (
     <div>
       <h1>Patient Management App</h1>
-      {/* Altri componenti o contenuti qui */}
       <PatientList />
-     
+      <Footer />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import React, { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const EditPatientDialog = ({ open, onClose, onUpdatePatient, patient }) => {
   const [editedPatient, setEditedPatient] = useState({
@@ -18,20 +18,22 @@ const EditPatientDialog = ({ open, onClose, onUpdatePatient, patient }) => {
       [field]: value,
     }));
   };
+
   const handleSave = async () => {
     try {
-      // Aggiorna l'ID del paziente nei dati del paziente aggiornato
-      const updatedData = { ...editedPatient, id: patient.id };
-  
-      // Chiamata API per l'aggiornamento del paziente
+      // Assicurati di includere la data di nascita originale del paziente
+      const updatedData = {
+        ...editedPatient,
+        id: patient.id,
+        birthDate: patient.birthDate,
+      };
+
       await onUpdatePatient(updatedData);
-      onClose(); // Chiudi il dialog dopo l'aggiornamento
+      onClose();
     } catch (error) {
-      console.error('Errore durante l\'aggiornamento del paziente:', error);
-      // Gestire l'errore come desiderato
+      console.error("Errore durante l'aggiornamento del paziente:", error);
     }
   };
-  
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
@@ -40,21 +42,21 @@ const EditPatientDialog = ({ open, onClose, onUpdatePatient, patient }) => {
         <TextField
           label="Family Name"
           value={editedPatient.familyName}
-          onChange={(e) => handleFieldChange('familyName', e.target.value)}
+          onChange={(e) => handleFieldChange("familyName", e.target.value)}
           fullWidth
           margin="normal"
         />
         <TextField
           label="Given Name"
           value={editedPatient.givenName}
-          onChange={(e) => handleFieldChange('givenName', e.target.value)}
+          onChange={(e) => handleFieldChange("givenName", e.target.value)}
           fullWidth
           margin="normal"
         />
         <TextField
           label="Sex"
           value={editedPatient.sex}
-          onChange={(e) => handleFieldChange('sex', e.target.value)}
+          onChange={(e) => handleFieldChange("sex", e.target.value)}
           fullWidth
           margin="normal"
         />

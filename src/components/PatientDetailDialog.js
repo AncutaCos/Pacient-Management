@@ -1,10 +1,10 @@
-import React from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import EditPatientDialog from './EditPatientDialog';
+import React from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import EditPatientDialog from "./EditPatientDialog";
 
 const PatientDetailDialog = ({ open, onClose, patient, onUpdatePatient }) => {
   const [editDialogOpen, setEditDialogOpen] = React.useState(false);
@@ -35,8 +35,8 @@ const PatientDetailDialog = ({ open, onClose, patient, onUpdatePatient }) => {
           <strong>Sex:</strong> {patient.sex}
         </Typography>
         <Typography>
-          <strong>Birth Date:</strong>{' '}
-          {new Date(patient.birthDate).toLocaleDateString('en-US')}
+          <strong>Birth Date:</strong>{" "}
+          {new Date(patient.birthDate).toLocaleDateString("en-US")}
         </Typography>
 
         <Typography variant="h6">Parameters:</Typography>
@@ -52,12 +52,12 @@ const PatientDetailDialog = ({ open, onClose, patient, onUpdatePatient }) => {
               <strong>Value:</strong> {param.value}
             </Typography>
             <Typography>
-              <strong>Alarm:</strong> {param.alarm ? 'Yes' : 'No'}
+              <strong>Alarm:</strong> {param.alarm ? "Yes" : "No"}
             </Typography>
             <br />
           </div>
         ))}
-        
+
         <Button variant="outlined" onClick={handleEditClick}>
           Edit Patient
         </Button>
